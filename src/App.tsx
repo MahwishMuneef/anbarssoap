@@ -9,6 +9,7 @@ import Layout from "./components/layout/Layout";
 import SoapsPage from "./pages/Soaps";
 import FaceWashesPage from "./pages/FaceWashes";
 import AboutPage from "./pages/About";
+import ProductsPage from "./pages/Products";
 import CheckoutPage from "./pages/Checkout";
 import SuccessPage from "./pages/Success";
 
@@ -50,6 +51,14 @@ const App = () => (
             element={
               <Layout>
                 <AboutPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/products"
+            element={
+              <Layout>
+                <ProductsPage />
               </Layout>
             }
           />

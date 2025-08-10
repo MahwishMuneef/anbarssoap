@@ -12,8 +12,7 @@ const Navbar = () => {
       <nav className="container flex h-16 items-center justify-between">
         <Link to="/" className="font-playfair text-xl tracking-tight">Pure Botanica</Link>
         <div className="flex items-center gap-6">
-          <NavLink to="/products/soaps" className={({isActive}) => isActive ? "text-primary" : "text-foreground/80 hover:text-foreground"}>Soaps</NavLink>
-          <NavLink to="/products/face-washes" className={({isActive}) => isActive ? "text-primary" : "text-foreground/80 hover:text-foreground"}>Face Washes</NavLink>
+          <NavLink to="/products" className={({isActive}) => isActive ? "text-primary" : "text-foreground/80 hover:text-foreground"}>Products</NavLink>
           <NavLink to="/about" className={({isActive}) => isActive ? "text-primary" : "text-foreground/80 hover:text-foreground"}>About</NavLink>
           <CartSheet>
             <button aria-label="Open cart" className="relative inline-flex items-center justify-center">

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ProductData } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { useNavigate } from "react-router-dom";
 
 function formatCurrency(n: number) {
   return new Intl.NumberFormat(undefined, { style: "currency", currency: "USD" }).format(n);
@@ -14,6 +15,7 @@ const Stars = ({ rating }: { rating: number }) => (
 
 const ProductCard = ({ product }: { product: ProductData }) => {
   const { add } = useCart();
+  const navigate = useNavigate();
 
   return (
     <Card className="hover-scale">
@@ -25,7 +27,17 @@ const ProductCard = ({ product }: { product: ProductData }) => {
         <p className="mt-3 text-sm text-muted-foreground">{product.description}</p>
         <div className="mt-3 font-semibold">{formatCurrency(product.price)}</div>
       </CardContent>
-      <CardFooter className="flex gap-2">
+      <CardFooter className="flex flex-wrap gap-2">
+        <Button
+          variant="hero"
+          onClick={() => {
+            add(product);
+            navigate("/checkout");
+          }}
+          aria-label={`Buy ${product.name} now`}
+        >
+          Buy Now
+        </Button>
         <Button variant="secondary" onClick={() => add(product)} aria-label={`Add ${product.name} to cart`}>Add to cart</Button>
         <Dialog>
           <DialogTrigger asChild>

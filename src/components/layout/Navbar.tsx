@@ -9,11 +9,24 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-40 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
-      <nav className="container flex h-16 items-center justify-between">
-        <Link to="/" className="font-playfair text-xl tracking-tight">Pure Botanica</Link>
-        <div className="flex items-center gap-6">
-          <NavLink to="/products" className={({isActive}) => isActive ? "text-primary" : "text-foreground/80 hover:text-foreground"}>Products</NavLink>
-          <NavLink to="/about" className={({isActive}) => isActive ? "text-primary" : "text-foreground/80 hover:text-foreground"}>About</NavLink>
+      <nav className="container grid grid-cols-3 items-center h-16">
+        <div className="justify-self-start">
+          <Link to="/" className="font-playfair text-xl tracking-tight">Pure Botanica</Link>
+        </div>
+        <div className="justify-self-center">
+          <ul className="flex items-center gap-6">
+            <li>
+              <NavLink to="/" end className={({isActive}) => isActive ? "text-primary font-medium" : "text-foreground/80 hover:text-foreground"}>Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/about" className={({isActive}) => isActive ? "text-primary font-medium" : "text-foreground/80 hover:text-foreground"}>About</NavLink>
+            </li>
+            <li>
+              <NavLink to="/products" className={({isActive}) => isActive ? "text-primary font-medium" : "text-foreground/80 hover:text-foreground"}>Products</NavLink>
+            </li>
+          </ul>
+        </div>
+        <div className="justify-self-end">
           <CartSheet>
             <button aria-label="Open cart" className="relative inline-flex items-center justify-center">
               <ShoppingBag className="h-5 w-5" />
